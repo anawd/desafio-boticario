@@ -9,7 +9,7 @@ module.exports = {
         email,
         senha
       })
-      .select('name')
+      .select('id', 'name')
       .first();
 
 

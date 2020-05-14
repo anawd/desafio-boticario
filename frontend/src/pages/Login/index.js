@@ -21,6 +21,7 @@ export default function Login() {
     try {
       const response = await api.post('sessions', { email, senha });
 
+      localStorage.setItem('RevendedorID', response.data.id);
       localStorage.setItem('RevendedorName', response.data.name);
 
       history.push('/profile');
