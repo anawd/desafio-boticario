@@ -9,15 +9,13 @@ module.exports = {
   },
 
   async create(request, response) {
-    const { codigo, value, status, cashback, data } = request.body;
+    const { codigo, value, data } = request.body;
     const revendedor_id = request.headers.authorization;
 
     const [id] = await connection('purchase').insert({
       codigo,
       value,
       data,
-      status,
-      cashback,
       revendedor_id,
     });
 

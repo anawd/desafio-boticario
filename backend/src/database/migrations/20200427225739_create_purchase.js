@@ -4,8 +4,6 @@ exports.up = function (knex) {
 
     table.string('codigo').notNullable();
     table.decimal('value').notNullable();
-    table.string('status').notNullable();
-    table.decimal('cashback').notNullable();
     table.date('data').notNullable();
 
     table.string('revendedor_id').notNullable();

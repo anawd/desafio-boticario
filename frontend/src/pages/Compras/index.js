@@ -10,25 +10,25 @@ import './style.css';
 export default function Compras() {
   const [codigo, setCodigo] = useState('');
   const [value, setValue] = useState('');
-  const [datacompra, setDataCompra] = useState('');
+  const [data, setData] = useState('');
 
-  const revendedorID = localStorage.getItem('revendedorID');
+  const RevendedorID = localStorage.getItem('RevendedorID');
 
   const history = useHistory();
 
   async function handlePurchase(e) {
     e.preventDefault();
 
-    const data = {
+    const dataCompra = {
       codigo,
       value,
-      datacompra,
+      data,
     };
 
     try {
-      await api.post('purchase', data, {
+      await api.post('purchase', dataCompra, {
         headers: {
-          Authorization: revendedorID,
+          Authorization: RevendedorID,
         }
       });
       history.push('/profile');
@@ -50,14 +50,14 @@ export default function Compras() {
             onChange={e => setCodigo(e.target.value)}
           />
           <input
-            placeholder="Valor em Reais"
+            placeholder="Valor"
             value={value}
             onChange={e => setValue(e.target.value)}
           />
           <input
             placeholder="Data"
-            value={datacompra}
-            onChange={e => setDataCompra(e.target.value)}
+            value={data}
+            onChange={e => setData(e.target.value)}
           />
 
           <button className="button" type="submit">Cadastrar Compra</button>

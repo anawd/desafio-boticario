@@ -44,9 +44,8 @@ export default function Profile() {
 
     history.push('/');
   }
-
   return (
-    <div className="profile-container">
+    <div className="profile-container" >
       <header>
         <img src={logoImg} alt="Grupo Boticário" />
         <span>Bem vindo(a), {RevendedorName} </span>
@@ -74,18 +73,17 @@ export default function Profile() {
             <strong>Data</strong>
             <p>{compra.data}</p>
 
-            <strong>Cash Aplicado</strong>
-            <p>{compra.cashback}</p>
-
             <strong>Valor do Cash</strong>
             <p>{Intl.NumberFormat('pt-BR', {
               style: 'currency',
               currency: 'BRL'
-            }).format(compra.cashback)}</p>
+            }).format(compra.value * 15 / 100)}</p>
 
 
-            <strong>Status</strong>
-            <p>{compra.status}</p>
+            <strong> Status</strong>
+            <p>
+
+            </p>
 
             <button type="button" onClick={() => handleDeleteCompra(compra.id)}>
               <FiTrash2 size={20} color="8dcb78" />
